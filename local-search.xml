@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>int型数据bit反转</title>
+    <link href="/2021/07/25/int%E5%9E%8B%E6%95%B0%E6%8D%AEbit%E5%8F%8D%E8%BD%AC/"/>
+    <url>/2021/07/25/int%E5%9E%8B%E6%95%B0%E6%8D%AEbit%E5%8F%8D%E8%BD%AC/</url>
+    
+    <content type="html"><![CDATA[<h2 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h2><p>计算int型数据bit位前后顺序反转后的数值，例如：<br>input：22<br>output：1744830464</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * @Author: Nonrustknife &lt;chris&gt;</span><br><span class="hljs-comment"> * @Date:   18-Jul-2021</span><br><span class="hljs-comment"> * @Email:  cm656879@outlook.com</span><br><span class="hljs-comment"> * @Last modified by:   chris</span><br><span class="hljs-comment"> * @Last modified time: 19-Jul-2021</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><br><br><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">node</span></span><br><span class="hljs-class">&#123;</span><br>  <span class="hljs-keyword">int</span> data;<br>  node* next;<br>&#125;<span class="hljs-function">node</span><br><span class="hljs-function"></span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">stackInit</span><span class="hljs-params">(node* head)</span></span><br><span class="hljs-function"></span>&#123;<br>  head-&gt;data = <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">while</span>(head-&gt;next != null)<br>  &#123;<br>    head-&gt;data = <span class="hljs-number">0</span>;<br>    head == head-&gt;next;<br>  &#125;<br>&#125;<br><br><span class="hljs-function">node* <span class="hljs-title">stackPush</span><span class="hljs-params">(node* head, <span class="hljs-keyword">int</span> data)</span></span><br><span class="hljs-function"></span>&#123;<br>  <span class="hljs-keyword">while</span>(head-&gt;next != null)<br>    head = head-&gt;next;<br><br>  head-&gt;next = <span class="hljs-built_in">malloc</span>(<span class="hljs-keyword">sizeof</span>(node));<br>  head-&gt;next.data = data;<br>  head-&gt;next.next = null;<br><br>  retrun &amp;(head-&gt;next);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">stackPop</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br><br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>  node head;<br>  stackInit(head);<br><br>&#125;<br><br><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>习题</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>C/C++</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>相亲认识了一个人</title>
     <link href="/2021/07/22/0722/"/>
     <url>/2021/07/22/0722/</url>
@@ -40,31 +65,6 @@
     <tags>
       
       <tag>C/C++</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>添加封面图片</title>
-    <link href="/2021/06/27/%E6%B7%BB%E5%8A%A0%E5%B0%81%E9%9D%A2%E5%9B%BE%E7%89%87/"/>
-    <url>/2021/06/27/%E6%B7%BB%E5%8A%A0%E5%B0%81%E9%9D%A2%E5%9B%BE%E7%89%87/</url>
-    
-    <content type="html"><![CDATA[<!-- 简单示例 (id, server, type)  -->    <div id="aplayer-SMoSrCfK" class="aplayer aplayer-tag-marker meting-tag-marker"         data-id="119441963" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"    ></div><!-- 进阶示例 -->]]></content>
-    
-    
-    <categories>
-      
-      <category>hexo</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>hexo</tag>
       
     </tags>
     
