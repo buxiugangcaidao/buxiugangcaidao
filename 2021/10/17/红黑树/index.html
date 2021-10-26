@@ -1,0 +1,770 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/personal_page">
+  <link rel="icon" href="/img/personal_page">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="/**
+
+@Author: Nonrustknife 
+@Date:   17-Oct-2021
+@Email:  &amp;#99;&amp;#109;&amp;#54;&amp;#x35;&amp;#54;&amp;#56;&amp;#x37;&amp;#57;&amp;#64;&amp;#x6f;&amp;#117;&amp;#116;&amp;#108;&amp;#x6f;&amp;#x6f;&amp;#x6b;&amp;#46;&amp;#99;&amp;#x6f;&amp;#109;
+@Last modified by:   chris
+@L">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+  <title>红黑树buxiugangcaidaoHexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>不锈钢菜刀的主页</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                目录
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/sky.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="红黑树">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-10-17 20:14" pubdate>
+        October 17, 2021 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.5k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      29
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">红黑树</h1>
+            
+            <div class="markdown-body">
+              <p>/**</p>
+<ul>
+<li>@Author: Nonrustknife <chris></li>
+<li>@Date:   17-Oct-2021</li>
+<li>@Email:  <a href="mailto:&#99;&#109;&#54;&#x35;&#54;&#56;&#x37;&#57;&#64;&#x6f;&#117;&#116;&#108;&#x6f;&#x6f;&#x6b;&#46;&#99;&#x6f;&#109;">&#99;&#109;&#54;&#x35;&#54;&#56;&#x37;&#57;&#64;&#x6f;&#117;&#116;&#108;&#x6f;&#x6f;&#x6b;&#46;&#99;&#x6f;&#109;</a></li>
+<li>@Last modified by:   chris</li>
+<li>@Last modified time: 27-Oct-2021</li>
+<li>/</li>
+</ul>
+<p>#include&lt;stdio.h&gt;<br>#include&lt;string.h&gt;<br>#include&lt;stdlib.h&gt;<br>//#include&lt;thread.h&gt;<br>#define likely(x) __builtin_expect(!!(x), 1) //gcc内置函数, 帮助编译器分支优化<br>#define unlikely(x) __builtin_expect(!!(x), 0)</p>
+<p>#define RED 1<br>#define BLACK 2</p>
+<p>typedef struct RbTreeNode<br>{<br>    struct RbTreeNode *left;<br>    struct RbTreeNode *right;<br>    struct RbTreeNode *parent;<br>    unsigned char       color;<br>    int                           key;<br>    void                          *value;<br>}RbTreeNode;</p>
+<p>typedef struct RbTree<br>{<br>    RbTreeNode *root;<br>    RbTreeNode *nil;<br>}RbTree;</p>
+<p>RbTreeNode* AllocRbTreeNode()<br>{<br>    RbTreeNode *rbTreeNode = NULL;<br>    rbTreeNode = malloc(sizeof(RbTreeNode));<br>    if(rbTreeNode == NULL)<br>        return NULL;<br>    memset(rbTreeNode, 0, sizeof(RbTreeNode));</p>
+<pre><code>return rbTreeNode;
+</code></pre>
+<p>}</p>
+<p>void DelRbTreeNode(RbTree *rbTree, RbTreeNode *delNode)<br>{<br>    if(delNode-&gt;parent == rbTree-&gt;nil)<br>        free(delNode);</p>
+<pre><code>if(delNode == delNode-&gt;parent-&gt;left)
+&#123;
+    delNode-&gt;parent-&gt;left = rbTree-&gt;nil;
+&#125;
+else
+&#123;
+    delNode-&gt;parent-&gt;right = rbTree-&gt;nil;
+&#125;
+free(delNode);
+
+return;
+</code></pre>
+<p>}</p>
+<p>void LeftRotate(RbTree *rbTree, RbTreeNode *rotNode)<br>{<br>    RbTreeNode *rightNode = rotNode-&gt;right;</p>
+<pre><code>rotNode-&gt;right = rightNode-&gt;left;
+if(rightNode-&gt;left != rbTree-&gt;nil)
+&#123;
+    rightNode-&gt;left-&gt;parent = rotNode;
+&#125;
+
+if(rotNode-&gt;parent == rbTree-&gt;nil)
+&#123;
+    rbTree-&gt;root = rightNode;
+&#125;
+else if(rotNode == rotNode-&gt;parent-&gt;left)
+&#123;
+    rotNode-&gt;parent-&gt;left = rightNode;
+    rightNode-&gt;parent = rotNode-&gt;parent;
+&#125;
+else
+&#123;
+    rotNode-&gt;parent-&gt;right = rightNode;
+    rightNode-&gt;parent = rotNode-&gt;parent;
+&#125;
+
+rightNode-&gt;left = rotNode;
+rotNode-&gt;parent = rightNode;
+return;
+</code></pre>
+<p>}</p>
+<p>void RightRotate(RbTree *rbTree, RbTreeNode *rotNode)<br>{<br>    RbTreeNode *leftNode = rotNode-&gt;left;<br>    rotNode-&gt;left = leftNode-&gt;right;<br>    if(leftNode-&gt;right != rbTree-&gt;nil)<br>    {<br>        leftNode-&gt;right-&gt;parent = rotNode;<br>    }</p>
+<pre><code>if(rotNode-&gt;parent == rbTree-&gt;nil)
+&#123;
+    rbTree-&gt;root = leftNode;
+&#125;
+else if(rotNode == rotNode-&gt;parent-&gt;left)
+&#123;
+    rotNode-&gt;parent-&gt;left = leftNode;
+    leftNode-&gt;parent = rotNode-&gt;parent;
+&#125;
+else
+&#123;
+    rotNode-&gt;parent-&gt;right = leftNode;
+    leftNode-&gt;parent = rotNode-&gt;parent;
+&#125;
+
+leftNode-&gt;right = rotNode;
+rotNode-&gt;parent = leftNode;
+</code></pre>
+<p>}</p>
+<p>void RbTreeInsertFixup(RbTree *rbTree, RbTreeNode *fixNode)<br>{<br>    while((fixNode-&gt;parent != rbTree-&gt;nil) &amp;&amp; (fixNode-&gt;parent-&gt;color == RED))<br>    {<br>        if(fixNode-&gt;parent == fixNode-&gt;parent-&gt;parent-&gt;left)<br>        {<br>            RbTreeNode *y = fixNode-&gt;parent-&gt;parent-&gt;right;</p>
+<pre><code>        if((y != rbTree-&gt;nil) &amp;&amp; (y-&gt;color == RED))
+        &#123;
+            fixNode-&gt;parent-&gt;color = BLACK;
+            y-&gt;color = BLACK;
+            fixNode-&gt;parent-&gt;parent-&gt;color = RED;
+            fixNode = fixNode-&gt;parent-&gt;parent;
+        &#125;
+        else
+        &#123;
+            // LL型--&gt;右旋
+            if(fixNode == fixNode-&gt;parent-&gt;left)
+            &#123;
+                fixNode-&gt;parent-&gt;color = BLACK;
+                fixNode-&gt;parent-&gt;parent-&gt;color = RED;
+                RightRotate(rbTree, fixNode-&gt;parent-&gt;parent);
+            &#125;
+            //LR型--左旋+右旋
+            else
+            &#123;
+                fixNode-&gt;color = BLACK;
+                fixNode-&gt;parent-&gt;parent-&gt;color = RED;
+                LeftRotate(rbTree, fixNode-&gt;parent);
+                RightRotate(rbTree, fixNode-&gt;parent);
+            &#125;
+        &#125;
+    &#125;
+    else
+    &#123;
+        RbTreeNode *y = fixNode-&gt;parent-&gt;parent-&gt;left;
+        if((y != rbTree-&gt;nil) &amp;&amp; (y-&gt;color == RED))
+        &#123;
+            fixNode-&gt;parent-&gt;color = BLACK;
+            y-&gt;color = BLACK;
+            fixNode-&gt;parent-&gt;parent-&gt;color = RED;
+            fixNode = fixNode-&gt;parent-&gt;parent;
+        &#125;
+        else
+        &#123;
+            //RR型--&gt;左旋
+            if(fixNode == fixNode-&gt;parent-&gt;right)
+            &#123;
+                fixNode-&gt;parent-&gt;color = BLACK;
+                fixNode-&gt;parent-&gt;parent-&gt;color = RED;
+                LeftRotate(rbTree, fixNode-&gt;parent-&gt;parent);
+            &#125;
+            //RL型--&gt;右旋+左旋
+            else
+            &#123;
+                fixNode-&gt;color = BLACK;
+                fixNode-&gt;parent-&gt;parent-&gt;color = RED;
+                RightRotate(rbTree, fixNode-&gt;parent);
+                LeftRotate(rbTree, fixNode);
+            &#125;
+        &#125;
+    &#125;
+&#125;
+
+rbTree-&gt;root-&gt;color = BLACK;
+rbTree-&gt;root-&gt;parent = rbTree-&gt;nil;
+</code></pre>
+<p>}</p>
+<p>void RbTreeInsert(RbTree *rbTree, RbTreeNode *insertNode)<br>{<br>    //插入一个节点包括：寻找插入节点的位置；自平衡调整；<br>    RbTreeNode *x = rbTree-&gt;root;<br>    RbTreeNode *y = rbTree-&gt;nil;<br>    while(x != rbTree-&gt;nil)<br>    {<br>        y = x;<br>        if(insertNode-&gt;key &lt; x-&gt;key)<br>        {<br>            x = x-&gt;left;<br>        }<br>        else if(insertNode-&gt;key &gt; x-&gt;key)<br>        {<br>            x = x-&gt;right;<br>        }<br>        else<br>        {<br>            return;<br>        }<br>    }</p>
+<pre><code>insertNode-&gt;parent = y;
+if(y == rbTree-&gt;nil)
+&#123;
+    rbTree-&gt;root = insertNode;
+&#125;
+else if(insertNode-&gt;key &lt; y-&gt;key)
+&#123;
+    y-&gt;left = insertNode;
+&#125;
+else
+&#123;
+    y-&gt;right = insertNode;
+&#125;
+insertNode-&gt;left = rbTree-&gt;nil;
+insertNode-&gt;right = rbTree-&gt;nil;
+insertNode-&gt;color = RED;
+
+RbTreeInsertFixup(rbTree, insertNode);
+</code></pre>
+<p>}</p>
+<p>void RbTreeDelBlackNoleaf(RbTree *rbTree, RbTreeNode *delNode)<br>{<br>    RbTreeNode *delNodeSon;<br>    delNodeSon = (delNode-&gt;left == rbTree-&gt;nil)?(delNode-&gt;right):(delNode-&gt;left);</p>
+<pre><code>if(unlikely((delNode-&gt;color != BLACK) || (delNodeSon-&gt;color != RED)))
+&#123;
+    printf(&quot;[%d][%s]Not a rbTree!\n&quot;, __LINE__, __FUNCTION__);
+&#125;
+
+if(delNode-&gt;parent == rbTree-&gt;nil)
+&#123;
+    rbTree-&gt;root = delNode-&gt;left;
+&#125;
+else
+&#123;
+    if(delNode == delNode-&gt;parent-&gt;left)
+    &#123;
+        delNode-&gt;parent-&gt;left = delNodeSon;
+    &#125;
+    else
+    &#123;
+        delNode-&gt;parent-&gt;right = delNodeSon;
+    &#125;
+
+    delNodeSon-&gt;parent = delNode-&gt;parent;
+    delNodeSon-&gt;color = BLACK;
+    free(delNode);
+&#125;
+
+return;
+</code></pre>
+<p>}</p>
+<p>void RbTreeDelRedLeaf(RbTree *rbTree, RbTreeNode *delNode)<br>{<br>    DelRbTreeNode(rbTree, delNode);<br>}</p>
+<p>void RbTreeDelBlackLeaf(RbTree *rbTree, RbTreeNode *delNode)<br>{<br>    while(delNode-&gt;parent != rbTree-&gt;nil)<br>    {<br>        RbTreeNode *broNode;<br>        if(delNode == delNode-&gt;parent-&gt;left)<br>        {<br>            broNode = delNode-&gt;parent-&gt;right;<br>            if(broNode-&gt;color == RED)<br>            {<br>                delNode-&gt;parent-&gt;color = BLACK;<br>                broNode-&gt;color = BLACK;<br>                LeftRotate(rbTree, delNode-&gt;parent);<br>                continue;<br>            }<br>            else<br>            {<br>                if((broNode-&gt;right != rbTree-&gt;nil) &amp;&amp; (broNode-&gt;right-&gt;color == RED))<br>                {<br>                    int tmpColor = delNode-&gt;parent-&gt;color;<br>                    delNode-&gt;parent-&gt;color = broNode-&gt;color;<br>                    broNode-&gt;color = tmpColor;<br>                    broNode-&gt;right-&gt;color = BLACK;<br>                    LeftRotate(rbTree, delNode-&gt;parent);<br>                    break;<br>                }<br>                else<br>                {<br>                    if((broNode-&gt;left != rbTree-&gt;nil) &amp;&amp; (broNode-&gt;left-&gt;color == RED))<br>                    {<br>                        int tmpColor = delNode-&gt;parent-&gt;color;<br>                        delNode-&gt;parent-&gt;color = BLACK;<br>                        broNode-&gt;left-&gt;color = tmpColor;<br>                        RightRotate(rbTree, broNode);<br>                        LeftRotate(rbTree, delNode-&gt;parent);<br>                        continue;<br>                    }<br>                    else<br>                    {<br>                        if(delNode-&gt;parent-&gt;color == RED)<br>                        {<br>                            delNode-&gt;parent-&gt;color = BLACK;<br>                            broNode-&gt;color = RED;<br>                            break;<br>                        }<br>                        else<br>                        {<br>                            broNode-&gt;color = RED;<br>                            delNode = delNode-&gt;parent;<br>                            continue;<br>                        }<br>                    }<br>                }<br>            }<br>        }<br>        else<br>        {<br>            broNode = delNode-&gt;parent-&gt;left;<br>            if(broNode-&gt;color == RED)<br>            {<br>                delNode-&gt;parent-&gt;color = BLACK;<br>                broNode-&gt;color = BLACK;<br>                RightRotate(rbTree, delNode-&gt;parent);<br>                continue;<br>            }<br>            else<br>            {<br>                if((broNode-&gt;left != rbTree-&gt;nil) &amp;&amp; (broNode-&gt;left-&gt;color == RED))<br>                {<br>                    int tmpColor = delNode-&gt;parent-&gt;color;<br>                    delNode-&gt;parent-&gt;color = broNode-&gt;color;<br>                    broNode-&gt;color = tmpColor;<br>                    broNode-&gt;left-&gt;color = BLACK;<br>                    LeftRotate(rbTree, delNode-&gt;parent);<br>                    break;<br>                }<br>                else<br>                {<br>                    if((broNode-&gt;right != rbTree-&gt;nil) &amp;&amp; (broNode-&gt;right-&gt;color == RED))<br>                    {<br>                        int tmpColor = delNode-&gt;parent-&gt;color;<br>                        delNode-&gt;parent-&gt;color = BLACK;<br>                        broNode-&gt;right-&gt;color = tmpColor;<br>                        LeftRotate(rbTree, broNode);<br>                        RightRotate(rbTree, delNode-&gt;parent);<br>                        continue;<br>                    }<br>                    else<br>                    {<br>                        if(delNode-&gt;parent-&gt;color == RED)<br>                        {<br>                            delNode-&gt;parent-&gt;color = BLACK;<br>                            broNode-&gt;color = RED;<br>                            break;<br>                        }<br>                        else<br>                        {<br>                            broNode-&gt;color = RED;<br>                            delNode = delNode-&gt;parent;<br>                            continue;<br>                        }<br>                    }<br>                }<br>            }<br>        }<br>    }</p>
+<pre><code>DelRbTreeNode(rbTree, delNode);
+</code></pre>
+<p>}</p>
+<p>void RbTreeDel(RbTree *rbTree, RbTreeNode *delNode)<br>{<br>    int tag = 0;</p>
+<pre><code>while(tag != 2)
+&#123;
+    if(delNode-&gt;left == rbTree-&gt;nil)//左子树为空
+    &#123;
+        if(delNode-&gt;right == rbTree-&gt;nil)//右子树也为空
+        &#123;
+            if(delNode-&gt;color == RED)
+            &#123;
+                RbTreeDelRedLeaf(rbTree, delNode);
+            &#125;
+            else if(delNode-&gt;color == BLACK)
+            &#123;
+                RbTreeDelBlackLeaf(rbTree, delNode);
+            &#125;
+            else
+            &#123;
+                printf(&quot;[%d][%s]ERR:node color err!\n&quot;, __LINE__, __FUNCTION__);
+            &#125;
+            break;
+        &#125;
+        else//右子树不为空，此时仅有一种情况，即删除节点为黑色，右子节点为红色；
+        &#123;
+            RbTreeDelBlackNoleaf(rbTree, delNode);
+            break;
+        &#125;
+    &#125;
+    else//左子树不为空
+    &#123;
+        if(delNode-&gt;right == rbTree-&gt;nil)//右子树为空
+        &#123;
+            RbTreeDelBlackNoleaf(rbTree, delNode);
+            break;
+        &#125;
+        else//左右子树都不为空
+        &#123;
+            RbTreeNode *tempNode = delNode-&gt;right;
+            while(tempNode != rbTree-&gt;nil)
+            &#123;
+                tempNode = tempNode-&gt;left;
+            &#125;
+
+            int tempKey = delNode-&gt;key;
+            delNode-&gt;key = tempNode-&gt;key;
+            delNode-&gt;value = tempNode-&gt;value;
+            tempNode-&gt;key = tempKey;
+            delNode = tempNode;
+
+            tag++;
+        &#125;
+    &#125;
+
+&#125;
+
+return;
+</code></pre>
+<p>}</p>
+<p>RbTreeNode <em>RbTreeNodeCreate(int key, void</em> value)<br>{<br>    RbTreeNode *rbTreeNode = malloc(sizeof(RbTreeNode));<br>    memset(rbTreeNode, 0 , sizeof(RbTreeNode));<br>    rbTreeNode-&gt;key = key;<br>    rbTreeNode-&gt;value = value;</p>
+<pre><code>return rbTreeNode;
+</code></pre>
+<p>}</p>
+<p>void PrintRbTreeNode(RbTreeNode *rbTreeNode)<br>{<br>    printf(“Addr:%x|key:%d|color:%x|value:%s|left:%x|right:%x|parent:%x\n”,<br>    (int)rbTreeNode, rbTreeNode-&gt;key, rbTreeNode-&gt;color, rbTreeNode-&gt;value, (int)rbTreeNode-&gt;left, (int)rbTreeNode-&gt;right, (int)rbTreeNode-&gt;parent);<br>    return;<br>}</p>
+<p>int main()<br>{<br>    RbTree *rbTree1 = malloc(sizeof(RbTree));<br>    rbTree1-&gt;root = NULL;<br>    rbTree1-&gt;nil = NULL;</p>
+<pre><code>RbTreeNode *rbTreeNode1 = RbTreeNodeCreate(1234, &quot;hello&quot;);
+RbTreeNode *rbTreeNode2 = RbTreeNodeCreate(12, &quot;hellokitty&quot;);
+RbTreeNode *rbTreeNode3 = RbTreeNodeCreate(123, &quot;hellonimabidekitty&quot;);
+
+RbTreeInsert(rbTree1, rbTreeNode1);
+RbTreeInsert(rbTree1, rbTreeNode2);
+RbTreeInsert(rbTree1, rbTreeNode3);
+
+PrintRbTreeNode(rbTreeNode1);
+PrintRbTreeNode(rbTreeNode2);
+PrintRbTreeNode(rbTreeNode3);
+
+RbTreeDel(rbTree1, rbTreeNode1);
+
+PrintRbTreeNode(rbTreeNode1);
+PrintRbTreeNode(rbTreeNode2);
+PrintRbTreeNode(rbTreeNode3);
+
+return 0;
+</code></pre>
+<p>}</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/07/25/int%E5%9E%8B%E6%95%B0%E6%8D%AEbit%E5%8F%8D%E8%BD%AC/">
+                        <span class="hidden-mobile">int型数据bit反转</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+  <div class="col-lg-7 mx-auto nopadding-x-md">
+    <div class="container custom post-custom mx-auto">
+      <img src=/img/Wechat.jpeg class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
+    </div>
+  </div>
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+    
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        京ICP证1206231号
+      </a>
+    </span>
+    
+      
+        <span>
+          <a
+            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=1206231"
+            rel="nofollow noopener"
+            class="beian-police"
+            target="_blank"
+          >
+            
+              <span style="visibility: hidden; width: 0">|</span>
+              <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
+            
+            <span>京公网安备1206231号</span>
+          </a>
+        </span>
+      
+    
+  </div>
+
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
